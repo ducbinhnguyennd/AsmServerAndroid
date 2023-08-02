@@ -1,0 +1,58 @@
+<%- include('../include/header.ejs') %>
+
+    
+<div class="container" style="margin-top: 40px;">
+    <h2><a href="/home/home"><img style="width: 35px;" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></a> Danh sách thể loại</h2>
+    <div class="col-sm-4 col-md-2">
+        <a type="button" class="btn btn-danger" href="/theloai/add" >
+            ➕ Thêm sản phẩm
+        </a>
+    </div>
+    <div class="col-1 col-sm-4 col-md-12">
+
+        <table class="table table-bordered table-striped" style="text-align: center;">
+            <tr>
+                <th>ID</th>
+                <th>Tên thể loại</th>
+                <th></th>
+            </tr>
+        
+            <% list_dstl.forEach( ( row )=>{  %>
+                
+            <tr>
+                <td> <%= row._id %></td>                
+                <td> <%= row.name %> </td>
+
+                <td> <a href="/theloai/edit/<%= row._id%>">
+                        <button type="button" class="btn btn-light">Sửa</button> 
+                     </a>
+                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            xóa
+                        </button>
+                           
+                        <div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" >
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Chắc chắn muốn xóa ?</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+                                            <a href="/theloai/deleteTL/<%= row._id%>"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Có</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div> 
+                </td>
+
+            </tr>
+            <% } ) %>
+        
+            </table>
+       
+    </div>
+</div>
+
+
+<%- include('../include/footer.ejs') %>

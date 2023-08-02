@@ -1,0 +1,16 @@
+<%- include('../include/header.ejs') %>
+
+<div class="container">
+    <h2><a href="/theloai/list"><img style="width: 35px;" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></a> Cập nhật thể loại</h2>
+    <form action="" method="post">
+        <form class="px-4 py-3">
+            <label class="form-label">Tên thể loại</label>
+                <input type="text" name="name"  class="form-control" value="<%=obj_ds_tl.name %>"><br>
+
+            <button class="btn btn-danger" type="submit">Cập nhật</button>
+            <%= msg%>
+        </form>
+    </form>
+</div>
+
+<%- include('../include/footer.ejs') %>
